@@ -50,6 +50,7 @@ background: linear-gradient(to right, #000000, #174c16);
   top: 0;
   left: 0;
   width: 100%;
+
   z-index: 1000;
 }
       nav a {
@@ -288,9 +289,12 @@ nav ul li a:hover {
       /* Responsive Styles */
       @media (max-width: 768px) {
         nav {
-          flex-direction: column;
+          flex-direction: row;
+          justify-content: space-between;
           align-items: flex-start;
-          padding: 10px 20px;
+          padding: 0px 20px;
+          background: linear-gradient(to right, #000000, #174c16);
+
         }
 
         .menu-toggle {
@@ -303,10 +307,28 @@ nav ul li a:hover {
         .right ul {
           display: none;
           flex-direction: column;
+          position: absolute;
+          top: 80px;
+          right: 0;
+          width : 200px;
+          padding: 20px 0;
           width: 100%;
-          background-color: black;
-          padding: 10px 0;
+          background: linear-gradient(to right, #000000, #174c16);
+
+          padding: 20px 0;
+          border-radius: 0 0 0 10px;
+           transition: all 1s ease-in-out;
+          box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.4);
+
         }
+          .right ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+    text-align: center;
+  }
 
         .right ul.active {
           display: flex;
