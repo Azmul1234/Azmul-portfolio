@@ -1321,10 +1321,37 @@ nav a.active {
         loop: true,
       });
 
-      function toggleMenu() {
-        const menu = document.querySelector(".right ul");
-        menu.classList.toggle("active");
-      }
+         function toggleMenu() {
+    const menu = document.querySelector(".right ul");
+    menu.classList.toggle("show");
+  }
+
+  window.addEventListener("scroll", () => {
+    const menu = document.querySelector(".right ul");
+    // Only close the menu on scroll if the screen is mobile size and the menu is open
+    if (window.innerWidth <= 768 && menu.classList.contains("show")) {
+      menu.classList.remove("show");
+    }
+  });
+  
+      window.addEventListener("scroll", () => {
+  const section = document.querySelector(".skills-left");
+  const sectionTop = section.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (sectionTop < screenHeight - 100) {
+    section.classList.add("show");
+  }
+});
+// Optional: Close menu when a link is clicked on mobile
+document.querySelectorAll(".right ul li a").forEach(link => {
+  link.addEventListener("click", () => {
+    const menu = document.querySelector(".right ul");
+    if (window.innerWidth <= 768 && menu.classList.contains("show")) {
+      menu.classList.remove("show");
+    }
+  });
+});
       window.addEventListener("scroll", () => {
   const section = document.querySelector(".skills-left");
   const sectionTop = section.getBoundingClientRect().top;
